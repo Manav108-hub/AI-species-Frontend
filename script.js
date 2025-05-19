@@ -75,7 +75,7 @@ const CLASS_MAPPING = {
       formData.append("file", file);
   
       try {
-        const response = await fetch("http://localhost:8000/predict", { method: "POST", body: formData });
+        const response = await fetch("https://ai-species-backend-1.onrender.com/predict", { method: "POST", body: formData });
         const result = await response.json();
         const className = result.predicted_class || "Unknown";
   
