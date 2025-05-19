@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Species Recognition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679481.png" alt="Lion Icon" width="30" height="30" />
+        <h1>Species Recognition</h1>
+      </header>
+      <p>Upload an image or ZIP file to identify animal species.</p>
+
+      <section class="about-model">
+        <h2>About Model</h2>
+        <ul>
+          <li><strong>Model:</strong> CNN + EfficientNet Fusion</li>
+          <li><strong>Input Size:</strong> 224x224</li>
+          <li><strong>Confidence Threshold:</strong> 70%</li>
+          <li><strong>Device:</strong> GPU / CPU (from backend)</li>
+        </ul>
+      </section>
+
+      <section class="metrics">
+        <h2>Precision & Recall Metrics</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Species</th>
+              <th>Precision</th>
+              <th>Recall</th>
+              <th>F1-Score</th>
+              <th>Support</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cani_aura : Golden Jackal</td>
+              <td>0.96</td>
+              <td>0.94</td>
+              <td>0.95</td>
+              <td>179</td>
+            </tr>
+            <tr>
+              <td>Cow</td>
+              <td>0.97</td>
+              <td>0.97</td>
+              <td>0.97</td>
+              <td>175</td>
+            </tr>
+            <tr>
+              <td>Hyen_Hyen : Spotted Hyena</td>
+              <td>0.94</td>
+              <td>0.98</td>
+              <td>0.96</td>
+              <td>189</td>
+            </tr>
+            <tr>
+              <td>Pant_Pard : Leopard</td>
+              <td>0.98</td>
+              <td>0.95</td>
+              <td>0.96</td>
+              <td>189</td>
+            </tr>
+            <tr>
+              <td>Sambar Deer</td>
+              <td>0.96</td>
+              <td>0.96</td>
+              <td>0.96</td>
+              <td>168</td>
+            </tr>
+            <tr class="summary">
+              <td><strong>Accuracy</strong></td>
+              <td colspan="3"><strong>0.96</strong></td>
+              <td><strong>Total</strong></td>
+              <td><strong>900</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </aside>
+
+    <main class="main-content">
+      <section class="upload-section">
+        <h2>Upload Image or ZIP File</h2>
+        <input type="file" id="upload" accept="image/*,.zip" />
+        <button onclick="handleUpload()">Upload</button>
+        <p id="status">Processing...</p>
+        <a id="downloadLink" style="display: none;" download="recognized_species.zip">
+          <i class="fas fa-download"></i> Download Categorized ZIP
+        </a>
+      </section>
+
+      <section class="results">
+        <h2>Results</h2>
+        <div id="resultContainer" class="result-container">
+          <!-- Predictions appear here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Include JSZIP for zip generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
